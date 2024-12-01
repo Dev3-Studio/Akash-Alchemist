@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  akash-alchemist-frontend:
+    image: xirynx/akash-alchemist-frontend:1.0.1
+    ports:
+      - "80:3000" # Exposing port 3000 as port 80 globally
+    environment:
+      - NEXT_PUBLIC_API_ENDPOINT=http://comfyui-wrapper-api:80
+
+  comfyui-plus:
+    image: xirynx/comfyui-plus:1.0.1
+    ports:
+      - "8188:80" # Internal port 8188 exposed as port 80 (not globally accessible)
+    environment:
+#  change to true if not using GPU
+      - CPU_ONLY=false
+      - CIVITAI_TOKEN=ADD_VAR_HERE
+
+  comfyui-wrapper-api:
+    image: xirynx/comfyui-wrapper-api:1.0.1
+    ports:
+      - "3000:80" # Exposing port 3000 as port 80 globally
+    environment:
+      - COMFY_UI_HOST=comfyui-plus
+      - COMFY_UI_PORT=80
+      - PORT=3000
+      - DB_FILE_NAME=file:local.db
+      - AKASHCHAT_KEY=ADD_VAR_HERE
+      - R2_ENDPOINT=ADD_VAR_HERE
+      - R2_ACCESS_KEY_ID=ADD_VAR_HERE
+      - R2_SECRET_ACCESS_KEY=ADD_VAR_HERE
+      - R2_BUCKET_NAME=ADD_VAR_HERE

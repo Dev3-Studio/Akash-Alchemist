@@ -32,13 +32,11 @@ services:
       - COMFY_UI_HOST=comfyui-plus
       - COMFY_UI_PORT=80
       - PORT=3000
-      - AKASHCHAT_KEY=sk-t7rFjxEk7BZ0drdWVs3JAw
       - DB_FILE_NAME=file:local.db
-      - >-
-        R2_ENDPOINT=ADD_VAR_HERE
+      - AKASHCHAT_KEY=ADD_VAR_HERE
+      - R2_ENDPOINT=ADD_VAR_HERE
       - R2_ACCESS_KEY_ID=ADD_VAR_HERE
-      - >-
-        R2_SECRET_ACCESS_KEY=ADD_VAR_HERE
+      - R2_SECRET_ACCESS_KEY=ADD_VAR_HERE
       - R2_BUCKET_NAME=ADD_VAR_HERE
 profiles:
   compute:
