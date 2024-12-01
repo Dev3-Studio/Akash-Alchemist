@@ -1,0 +1,100 @@
+version: "2.0"
+services:
+  akash-alchemist-frontend:
+    image: xirynx/akash-alchemist-frontend:1.0.1
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+    env:
+      - NEXT_PUBLIC_API_ENDPOINT=http://comfyui-wrapper-api:80
+  comfyui-plus:
+    image: xirynx/comfyui-plus:1.0.1
+    expose:
+      - port: 8188
+        as: 80
+        to:
+          - global: false
+          - service: comfyui-wrapper-api
+    env:
+#    change to true if not using GPU
+      - CPU_ONLY=false
+      - CIVITAI_TOKEN=ADD_VAR_HERE
+  comfyui-wrapper-api:
+    image: xirynx/comfyui-wrapper-api:1.0.1
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+    env:
+      - COMFY_UI_HOST=comfyui-plus
+      - COMFY_UI_PORT=80
+      - PORT=3000
+      - AKASHCHAT_KEY=sk-t7rFjxEk7BZ0drdWVs3JAw
+      - DB_FILE_NAME=file:local.db
+      - >-
+        R2_ENDPOINT=ADD_VAR_HERE
+      - R2_ACCESS_KEY_ID=ADD_VAR_HERE
+      - >-
+        R2_SECRET_ACCESS_KEY=ADD_VAR_HERE
+      - R2_BUCKET_NAME=ADD_VAR_HERE
+profiles:
+  compute:
+    akash-alchemist-frontend:
+      resources:
+        cpu:
+          units: 2
+        memory:
+          size: 512Mi
+        storage:
+          - size: 2Gi
+    comfyui-plus:
+      resources:
+        cpu:
+          units: 6
+        memory:
+          size: 32Gb
+        storage:
+          - size: 50Gi
+#--------remove these lines if not using gpu--------
+        gpu:
+          units: 1
+          attributes:
+            vendor:
+              nvidia:
+#--------remove these lines if not using gpu--------
+    comfyui-wrapper-api:
+      resources:
+        cpu:
+          units: 2
+        memory:
+          size: 512Mi
+        storage:
+          - size: 4Gi
+  placement:
+    dcloud:
+      pricing:
+        akash-alchemist-frontend:
+          denom: ibc/170C677610AC31DF0904FFE09CD3B5C657492170E7E52372E48756B71E56F2F1
+          amount: 1000
+        comfyui-plus:
+          denom: ibc/170C677610AC31DF0904FFE09CD3B5C657492170E7E52372E48756B71E56F2F1
+          amount: 1000
+        comfyui-wrapper-api:
+          denom: ibc/170C677610AC31DF0904FFE09CD3B5C657492170E7E52372E48756B71E56F2F1
+          amount: 1000
+deployment:
+  akash-alchemist-frontend:
+    dcloud:
+      profile: akash-alchemist-frontend
+      count: 1
+  comfyui-plus:
+    dcloud:
+      profile: comfyui-plus
+      count: 1
+  comfyui-wrapper-api:
+    dcloud:
+      profile: comfyui-wrapper-api
+      count: 1
