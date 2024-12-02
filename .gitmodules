@@ -1,6 +1,6 @@
-[submodule "akash-frontend"]
-	path = akash-frontend
-	url = https://github.com/Dev3-Studio/akash-frontend
+[submodule "akash-alchemist-frontend"]
+	path = akash-alchemist-frontend
+	url = https://github.com/Dev3-Studio/akash-alchemist-frontend
 [submodule "comfyui-wrapper-api"]
 	path = comfyui-wrapper-api
 	url = https://github.com/Dev3-Studio/comfyui-wrapper-api
