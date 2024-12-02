@@ -1,7 +1,7 @@
 version: "2.0"
 services:
   akash-alchemist-frontend:
-    image: xirynx/akash-alchemist-frontend:1.0.1
+    image: xirynx/akash-alchemist-frontend:1.1.2
     expose:
       - port: 3000
         as: 80
@@ -22,7 +22,7 @@ services:
       - CPU_ONLY=false
       - CIVITAI_TOKEN=ADD_VAR_HERE
   comfyui-wrapper-api:
-    image: xirynx/comfyui-wrapper-api:1.0.1
+    image: xirynx/comfyui-wrapper-api:1.0.6
     expose:
       - port: 3000
         as: 80

@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   akash-alchemist-frontend:
-    image: xirynx/akash-alchemist-frontend:1.0.1
+    image: xirynx/akash-alchemist-frontend:1.1.2
     ports:
       - "80:3000" # Exposing port 3000 as port 80 globally
     environment:
@@ -18,7 +18,7 @@ services:
       - CIVITAI_TOKEN=ADD_VAR_HERE
 
   comfyui-wrapper-api:
-    image: xirynx/comfyui-wrapper-api:1.0.1
+    image: xirynx/comfyui-wrapper-api:1.0.6
     ports:
       - "3000:80" # Exposing port 3000 as port 80 globally
     environment:
