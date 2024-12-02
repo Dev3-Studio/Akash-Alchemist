@@ -41,3 +41,8 @@ docker-compose up
 
 ## Deployment
 For deployment instructions, please refer to the documentation on [gitbook](https://dev3-studio.gitbook.io/akash-alchemist/getting-started/quickstart)
+
+
+Akash SDL is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/akash-sdl.yaml)
+
+Docker Compose is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/docker-compose.yaml)
