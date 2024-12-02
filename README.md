@@ -7,9 +7,20 @@
 3. Smart Settings Optimization: The Akash Chat API also determines the best generation settings based on the user's input, eliminating the guesswork and streamlining the process.
 4. Image Generation: The enhanced prompt and settings are then used to create a high-quality image that matches the user's vision.
 
-#### Akash Alchemist seamlessly integrates cutting-edge AI technology to make image creation intuitive, efficient, and enjoyable.
+#### Akash Alchemist has been designed to be deployed fully on the [Akash Supercloud](https://console.akash.network), however it can also be deployed on any provider of your choice.
 
 For more details on the project, please visit [Our Docs](https://dev3-studio.gitbook.io/akash-alchemist/)
+
+## Deployment
+
+For deployment instructions, please refer to the documentation on [gitbook](https://dev3-studio.gitbook.io/akash-alchemist/getting-started/quickstart)
+
+### Akash Network
+The `akash-sdl.yaml` file is used to define the deployment on the Akash Network. It is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/akash-sdl.yaml)
+
+
+### Docker Compose
+The `docker-compose.yaml` file is used for local development / deployment to another service. It is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/docker-compose.yaml)
 
 ## Services
 
@@ -22,15 +33,6 @@ The `comfyui-plus` service is a custom fork of ComfyUI with additional nodes for
 ### comfyui-wrapper-api
 The `comfyui-wrapper-api` service is a wrapper around the ComfyUI API that provides an easy-to-use interface for generating images based on text prompts.
 
-## Deployment
-
-### Akash Network
-The `akash-sdl.yaml` file is used to define the deployment on the Akash Network.
-
-
-### Docker Compose
-The `docker-compose.yaml` file is used for local development / deployment to another service.
-
 ## Usage
 
 ### Local Development
@@ -38,11 +40,3 @@ To run the services locally using Docker Compose:
 ```sh
 docker-compose up
 ```
-
-## Deployment
-For deployment instructions, please refer to the documentation on [gitbook](https://dev3-studio.gitbook.io/akash-alchemist/getting-started/quickstart)
-
-
-Akash SDL is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/akash-sdl.yaml)
-
-Docker Compose is available [here](https://github.com/Dev3-Studio/Akash-Alchemist/blob/deployments/docker-compose.yaml)
